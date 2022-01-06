@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, Image, Text } from 'react-native';
+import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 
 const PeopleList = ({ onClick, peoplesData }) => (
+<TouchableOpacity onPress={() => { onClick(peoplesData.id) }}>
   <View >
     <View >
       <Text>
@@ -19,6 +20,7 @@ const PeopleList = ({ onClick, peoplesData }) => (
            
     </View>
   </View>
+  </TouchableOpacity>
 );
 
 export default PeopleList;

@@ -1,33 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import { View, TextInput, Button, StyleSheet, FlatList, Text } from 'react-native';
 
-// import RestaurantlistItem from '../components/RestaurantListItem';
-
-// import Colors from '../definitions/Colors';
-// import fakeRestaurants from '../helpers/fakeRestaurants';
-
 import PeopleList from './PeopleList';
-import { getMovies } from '../api/movieDb';
+import { getMovies, getSearchPeople } from '../api/movieDb';
 
-const Search = () => {
+const Search = ({ navigation }) => {
 
     const [peoples, setPeoples] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
     const searchPeoples = async () => {
       try {
         const movieDbSearchResult = await getMovies();
+        // const movieDbSearchResult = await getSearchPeople(searchTerm);
         setPeoples(movieDbSearchResult.results);
       } catch (error) {
   
       }
     }
 
+    const searchPeoplesText = async () => {
+        try {
+        //   const movieDbSearchResult = await getMovies();
+          const movieDbSearchResult = await getSearchPeople(searchTerm);
+          setPeoples(movieDbSearchResult.results);
+        } catch (error) {
+    
+        }
+      }
+
      useEffect(() => {
         searchPeoples();
     }, []);
 
-    const navigateToPeopleDetails = () => {
-        navigation.navigate("ViewPeople");
+
+      const navigateToPeopleDetails = (peopleID) => {
+        navigation.navigate("ViewPeople", { peopleID });
       };
 
 
@@ -37,10 +45,11 @@ const Search = () => {
         <TextInput
           placeholder='Nom du restaurant'
           style={styles.inputRestaurantName}
+          onChangeText={(text) => setSearchTerm(text)}
         />
          <Button
           title='Rechercher'
-          onPress={searchPeoples}
+          onPress={searchPeoplesText}
         />
       </View>
       <FlatList
