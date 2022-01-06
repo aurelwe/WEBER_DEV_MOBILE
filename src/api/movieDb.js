@@ -1,14 +1,18 @@
-const API_KEY = '5ffb698e3d9a8ea8d51fb8847c216058';
+const API_KEY = 'f60dc1588d1b92e483f83fa137b9f5ab';
 
 export async function getMovies(searchTerm = '', offset = 0) {
   try {
-    const myHeaders = new Headers({ 'user-key': API_KEY });
-    const url = `https://developers.zomato.com/api/v2.1/search?entity_id=${LONDON_ID}&entity_type=city&start=${offset}&q=${searchTerm}`;
-    const response = await fetch(url, { headers: myHeaders });
+    // const myHeaders = new Headers({ 'api_key': API_KEY });
+   
+    // const url = ` https://api.themoviedb.org/3/person/popular?api_key=${API_KEY}`;
+    const url = `https://api.themoviedb.org/3/person/popular?api_key=${API_KEY}`;
+    // const url = `https://developers.zomato.com/api/v2.1/search?entity_id=${LONDON_ID}&entity_type=city&start=${offset}&q=${searchTerm}`;
+    const response = await fetch(url);
     const json = await response.json();
+    // console.log(json);
     return json;
   } catch (error) {
-    console.log(`Error with function getRestaurants ${error.message}`);
+    console.log(`Error with function getMovies ${error.message}`);
     throw error;
   }
 };

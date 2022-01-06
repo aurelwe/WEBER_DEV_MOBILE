@@ -1,12 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import PeopleList from './src/components/PeopleList';
+import Search from './src/components/Search';
+
+import { NavigationContainer } from '@react-navigation/native';
+
+import Navigation from './src/navigation/Navigation';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>TP NOTE !!!!!!</Text>
+    <NavigationContainer>
+      <Navigation />
       <StatusBar style="auto" />
-    </View>
+    </NavigationContainer>
   );
 }
 
