@@ -20,7 +20,28 @@ function FavPeople(state = initialState, action) {
   };
 }
 
-export default FavPeople;
+// export default FavPeople;
+// import React, { useState, useEffect } from 'react';
+// import { View, TextInput, Button, StyleSheet, FlatList, Text } from 'react-native';
+
+
+// const FavPeople = () => {
+//     const [people, setPeople] = useState([]);
+//   const [isRefreshing, setIsRefreshing] = useState(false);
+
+//     return (
+//         <View>
+//           <View >
+//             <TextInput
+//               placeholder='Favoris'
+//             />
+//           </View>
+//         </View>
+//       );
+// }
+// export default FavPeople;
+
+// // const initialState = { favPeopleID: [] }
 
 
 
