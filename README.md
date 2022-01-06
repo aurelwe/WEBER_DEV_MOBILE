@@ -20,3 +20,5 @@
 Merci d'indiquer si vous avez fait l'exercice sur téléphone ou émulateur.  SUR TELEPHONE
 
 Ajouter vos remarques ici si besoin
+
+Vers la fin du tp, j'ai eu une erreur et je n'arrive plus rien a faire. Avant cela, plusieurs fonctionnalitées fonctionnaient
